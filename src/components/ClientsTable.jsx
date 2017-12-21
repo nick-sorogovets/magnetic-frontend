@@ -5,11 +5,13 @@ import ClientRow from './ClientRow';
 
 const tempClients = [
   {
+    id: 1,
     name: 'Tom Bird',
     phone: '777-77-77',
     birthday: new Date(),
   },
   {
+    id: 2,
     name: 'Bill Gates',
     phone: '555-55-55',
     birthday: new Date(),
@@ -22,7 +24,7 @@ class ClientsTable extends Component {
     const renderClients = () => {
       return tempClients.map((client) => {
         return (
-          <ClientRow {...client} />
+          <ClientRow key={client.id} {...client} />
         );
       })
     };
