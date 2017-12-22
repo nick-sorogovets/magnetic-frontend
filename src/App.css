@@ -39,3 +39,7 @@ body.modal-open  .App {
 .modal-backdrop {
   background-color: transparent;
 }
+
+td {
+  text-align: left;
+}

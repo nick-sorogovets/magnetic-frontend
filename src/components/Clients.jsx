@@ -10,28 +10,22 @@ import { createClient } from '../actions';
 import '../styles/Clients.css';
 
 class Clients extends Component {
-
-  state = {
-    showClientForm: false,
-    activeClient: {},
-  }
-
   handleAddClient = (e) => {
     e.preventDefault();
     const { dispatch } = this.props;
     dispatch(createClient());
   }
+
   render() {
-    const { showClientForm } = this.state;
     return (
       <div>
         <Grid>
           <Row>
             <Col xs={11} md={10}>
-              <h4>Clients</h4>
+              <h4 className="pull-left">Clients</h4>
             </Col>
             <Col xs={1} md={2}>
-              <Button bsStyle="primary" className="add-client__button" onClick={this.handleAddClient}>+ Add Client</Button>
+              <Button bsStyle="primary" className="btn-flat" onClick={this.handleAddClient}>+ Add Client</Button>
             </Col>
           </Row>
           <Row className="client__table">

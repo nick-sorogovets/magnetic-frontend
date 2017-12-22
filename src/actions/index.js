@@ -47,7 +47,6 @@ export const saveClient = (client) => {
 export const cancelSaveClient = () => {
   return {
     type: types.SAVE_CLIENT,
-    id: null,
     client: undefined
   };
 }

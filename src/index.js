@@ -1,20 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+
+
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
 
 import configure from './store';
-
-import clientApp from './reducers';
 
 
 import { ADD_CLIENT } from './constants/index';
 import uuid from 'uuid';
+import moment from 'moment'
 let store = configure();
 
 store.dispatch({
@@ -23,7 +24,7 @@ store.dispatch({
     id: uuid(),
     name: 'Richard client',
     phone: '(777) 777-7777',
-    birthday: Date.now(),
+    birthday: moment(),
   }
 });
 
@@ -33,7 +34,7 @@ store.dispatch({
     id: uuid(),
     name: 'Alphred client',
     phone: '(666) 777-7777',
-    birthday: new Date('1/1/1990'),
+    birthday: moment('01/01/1970'),
   }
 });
 

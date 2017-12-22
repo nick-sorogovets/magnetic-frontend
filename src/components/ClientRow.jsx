@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Glyphicon, Button } from 'react-bootstrap';
+import { Glyphicon, Button, ButtonToolbar, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import moment from 'moment';
 import { connect } from 'react-redux';
 
@@ -9,21 +9,32 @@ class ClientRow extends Component {
 
   handleClick = () => {
     const { dispatch, id } = this.props;
-    dispatch(editClient(id));
+    if (id) {
+      dispatch(editClient(id));
+    }
   }
 
   render() {
     const { name, phone, birthday } = this.props;
     const renderDate = () => {
-      return moment(birthday).format('L');
+      return moment(birthday).format('LL');
     }
+
+    const tooltip = (
+      <Tooltip>Edit</Tooltip>
+    );
     return (
       <tr>
-        <td>{name}</td>
+        <td><p>{name}</p></td>
         <td>{phone}</td>
         <td>{renderDate()}</td>
         <td>
-          <Button onClick={this.handleClick}><Glyphicon glyph="pencil"/></Button>
+        <ButtonToolbar>
+          <OverlayTrigger placement="bottom" overlay={tooltip}>
+          <Button onClick={this.handleClick}><Glyphicon glyph="pencil" /></Button>
+          </OverlayTrigger>
+        </ButtonToolbar>
+         
         </td>
       </tr>
     )

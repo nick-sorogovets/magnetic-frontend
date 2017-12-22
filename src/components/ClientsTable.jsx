@@ -17,7 +17,7 @@ class ClientsTable extends Component {
       const { asc } = this.state;
       this.setState({
         orderBy: name,
-        acs: !asc
+        asc: !asc
       });
     }
   }
@@ -34,22 +34,25 @@ class ClientsTable extends Component {
       })
     };
 
-    const headerStyle = (name) => {
-      return name === orderBy ? 'active' : '';
-    }
-
     const iconStyle = (name) => {
-      return name === orderBy ? asc ? 'glyphicon glyphicon-sort-by-alphabet' : 'glyphicon glyphicon-sort-by-alphabet-alt' : '';
+      return name === orderBy 
+      ? asc 
+        ? 'glyphicon small glyphicon-sort-by-alphabet' 
+        : 'glyphicon small glyphicon-sort-by-alphabet-alt' 
+      : '';
     }
-
+    const renderTh = (name) => {
+      return (
+        <th onClick={this.handleOrder(name)}>{name}<i className={iconStyle(name)}></i></th>
+      );
+    }
     return (
       <Table striped hover responsive>
         <thead>
           <tr>
-            <th className={headerStyle()} onClick={this.handleOrder('name')}>Name <i className={iconStyle()} /></th>
-            <th className={headerStyle()} onClick={this.handleOrder('phone')}>Phone Number <i className={iconStyle()} /></th>
-            <th className={headerStyle()} onClick={this.handleOrder('birthday')}>Birthday <i className={iconStyle()} /></th>
-            <th>&nbsp;</th>
+            {renderTh('Name')}
+            {renderTh('Phone Number')}
+            {renderTh('Birthday')}
           </tr>
         </thead>
         <tbody>
