@@ -3,7 +3,7 @@ import {
   LOAD_CLIENTS_COMPLETED,
 } from '../constants';
 
-export default isLoading = (state = false, action) => {
+const isLoading = (state = false, action) => {
   switch (action.type) {
     case LOAD_CLIENTS_STARTED:
       return true;
@@ -13,3 +13,5 @@ export default isLoading = (state = false, action) => {
       return state;
   }
 }
+
+export default isLoading;

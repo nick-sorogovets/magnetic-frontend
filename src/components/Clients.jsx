@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-
 import { Button, Grid, Row, Col } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
 import ClientsTable from './ClientsTable';
 import ClientForm from './ClientForm';
+
+import { createClient } from '../actions';
 
 import '../styles/Clients.css';
 
@@ -16,7 +18,8 @@ class Clients extends Component {
 
   handleAddClient = (e) => {
     e.preventDefault();
-    this.setState({ showClientForm: true });
+    const { dispatch } = this.props;
+    dispatch(createClient());
   }
   render() {
     const { showClientForm } = this.state;
@@ -37,10 +40,10 @@ class Clients extends Component {
             </Col>
           </Row>
         </Grid>
-        <ClientForm show={showClientForm} />
+        <ClientForm/>
       </div>
     );
   }
 }
 
-export default Clients;
+export default connect()(Clients);

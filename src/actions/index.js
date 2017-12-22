@@ -25,13 +25,30 @@ export const fetchClients = () => {
 
 export const createClient = () => {
   return {
-    type: types.CREATE_CLIENT
+    type: types.SET_SELECTED,
+    id: '',
   };
 }
 
-export const editClient = (client) => {
+export const editClient = (id) => {
   return {
-    type: types.EDIT_CLIENT,
+    type: types.SET_SELECTED,
+    id,
+  };
+}
+
+export const saveClient = (client) => {
+  return {
+    type: types.SAVE_CLIENT,
     client,
   };
 }
+
+export const cancelSaveClient = () => {
+  return {
+    type: types.SAVE_CLIENT,
+    id: null,
+    client: undefined
+  };
+}
+
