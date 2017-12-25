@@ -41,18 +41,18 @@ class ClientsTable extends Component {
         : 'glyphicon small glyphicon-sort-by-alphabet-alt' 
       : '';
     }
-    const renderTh = (name) => {
+    const renderTh = (name, Title) => {
       return (
-        <th onClick={this.handleOrder(name)}>{name}<i className={iconStyle(name)}></i></th>
+        <th onClick={this.handleOrder(name)}>{Title}<i className={iconStyle(name)}></i></th>
       );
     }
     return (
       <Table striped hover responsive>
         <thead>
           <tr>
-            {renderTh('Name')}
-            {renderTh('Phone Number')}
-            {renderTh('Birthday')}
+            {renderTh('name','Name')}
+            {renderTh('phone','Phone Number')}
+            {renderTh('birthday','Birthday')}
           </tr>
         </thead>
         <tbody>

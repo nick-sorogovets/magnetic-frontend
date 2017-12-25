@@ -1,4 +1,6 @@
 import * as types from '../constants';
+import ClientsAPI from '../api/ClientsAPI';
+import moment from 'moment';
 
 export const startLoadClients = () => {
   return {
@@ -17,9 +19,18 @@ export const fetchClients = () => {
   return dispatch => {
     dispatch(startLoadClients());
 
-    fetch('/clients')
-      .then(res => res.json())
-      .then(json => dispatch(completeLoadClients(json.clients)));
+    ClientsAPI.loadClients()
+      .then(json => {
+        let clients = [];
+        console.log('Getted data', json);
+        if(json.length) {
+          clients = json.map(client => {
+            client.birthday = moment(client.birthday);
+            return client;
+          })
+        }
+        dispatch(completeLoadClients(clients))
+      });
   };
 }
 
@@ -51,3 +62,29 @@ export const cancelSaveClient = () => {
   };
 }
 
+export const sendClientStarted = () => {
+  return {
+    type: types.SEND_CLIENT_STARTED
+  };
+}
+
+export const sendClientCompleted = () => {
+  return {
+    type: types.SEND_CLIENT_COMPLETED
+  }
+}
+
+export const sendClient = (client) => {
+  return dispatch => {
+    dispatch(sendClientStarted());
+
+    ClientsAPI.saveClient(client).then(res => {
+
+      if(res.statusText === 'OK'){        
+        dispatch(sendClientCompleted());
+        dispatch(saveClient(client));
+      }
+
+    })
+  }
+}

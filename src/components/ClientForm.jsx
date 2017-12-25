@@ -8,7 +8,7 @@ import '../styles/DatePicker.css';
 
 import { isEqual } from 'lodash';
 
-import { cancelSaveClient, saveClient } from '../actions';
+import { cancelSaveClient, sendClient } from '../actions';
 import moment from 'moment'
 
 const PhoneEx = /\d{3}([ .-])?\d{3}([ .-])?\d{4}|\(\d{3}\)([ ])?\d{3}([.-])?\d{4}|\(\d{3}\)([ ])?\d{3}([ ])?\d{4}|\(\d{3}\)([.-])?\d{3}([.-])?\d{4}|\d{3}([ ])?\d{3}([ .-])?\d{4}/g;
@@ -56,7 +56,7 @@ class ClientForm extends Component {
   save = () => {
     const { dispatch } = this.props;
     const client = this.state.client;
-    dispatch(saveClient(client));
+    dispatch(sendClient(client));
   }
 
   close = () => {
