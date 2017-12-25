@@ -7,8 +7,6 @@ import ClientForm from './ClientForm';
 
 import { createClient } from '../actions';
 
-import '../styles/Clients.css';
-
 class Clients extends Component {
   handleAddClient = (e) => {
     e.preventDefault();
@@ -21,12 +19,15 @@ class Clients extends Component {
       <div>
         <Grid>
           <Row>
-            <Col xs={11} md={10}>
+            <Col xs={10} md={10}>
               <h4 className="pull-left">Clients</h4>
             </Col>
-            <Col xs={1} md={2}>
-              <Button bsStyle="primary" className="btn-flat" onClick={this.handleAddClient}>+ Add Client</Button>
+            <Col xs={2} md={2}>
+              <button type="button" className="btn-flat" onClick={this.handleAddClient}>+ Add Client</button>
             </Col>
+          </Row>
+          <Row>
+          <br/>
           </Row>
           <Row className="client__table">
             <Col xs={12} md={12}>

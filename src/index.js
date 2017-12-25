@@ -11,37 +11,8 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import './index.css';
 
 import configure from './store';
-
-
-import { ADD_CLIENT } from './constants/index';
-
 import { fetchClients } from './actions'
-
-import uuid from 'uuid';
-import moment from 'moment'
 let store = configure();
-
-// store.dispatch({
-//   type: ADD_CLIENT,
-//   client: {
-//     id: uuid(),
-//     name: 'Richard client',
-//     phone: '(777) 777-7777',
-//     birthday: moment(),
-//   }
-// });
-
-// store.dispatch({
-//   type: ADD_CLIENT,
-//   client: {
-//     id: uuid(),
-//     name: 'Alphred client',
-//     phone: '(666) 777-7777',
-//     birthday: moment('01/01/1970'),
-//   }
-// });
-
-
 
 fetchClients()(store.dispatch);
 

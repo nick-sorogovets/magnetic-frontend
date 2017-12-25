@@ -12,16 +12,18 @@
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
-@font-face {
-  font-family: 'Mouser Regular';
-  src: url('./fonts/Mouser.ttf');
+.App-title {
+  font-size: 2em;
+  text-align: left;
+  padding-left: 2rem;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 500;
 }
 
-.App-title {
-  font-size: 1.5em;
-  text-align: left;
-  padding-left: 1rem;
-  font-family: 'Mouser Regular',
+.App-title > small {
+  color: inherit;
+  font-size: 50%;
+  vertical-align: top;
 }
 
 .App-intro {
@@ -43,3 +45,27 @@ body.modal-open  .App {
 td {
   text-align: left;
 }
+
+.btn-flat {
+  color: #ffffff;
+  background: #4A90E2;
+  border: 0;
+  padding: 10px ;
+  margin: 0 20px 0 0;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.btn-flat:hover {
+  background: #4A90E2;
+}
+
+.btn-flat[disabled] {
+  background: #93BDEE;
+  cursor: not-allowed;
+}
+
+.btn-flat[disabled]:hover {
+  background: #93BDEE;
+}
+

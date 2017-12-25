@@ -148,7 +148,7 @@ class ClientForm extends Component {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button bsStyle="primary" onClick={this.save} disabled={!this.getIsValid()}>Save</Button>
+          <button className="btn-flat" onClick={this.save} disabled={!this.getIsValid()}>Save</button>
         </Modal.Footer>
       </Modal>
     );

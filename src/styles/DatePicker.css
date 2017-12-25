@@ -28,3 +28,11 @@
   border-left-color: #ccc;
   right: 1em;
 }
+
+.react-datepicker__day--selected {
+  border-radius: 50%;
+}
+
+.react-datepicker__day--selected:hover, .react-datepicker__day:hover {
+  border-radius: 50%;
+}

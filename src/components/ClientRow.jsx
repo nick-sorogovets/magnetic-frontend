@@ -31,7 +31,7 @@ class ClientRow extends Component {
         <td>
         <ButtonToolbar>
           <OverlayTrigger placement="bottom" overlay={tooltip}>
-          <Button onClick={this.handleClick}><Glyphicon glyph="pencil" /></Button>
+            <Glyphicon glyph="pencil" onClick={this.handleClick} />
           </OverlayTrigger>
         </ButtonToolbar>
          

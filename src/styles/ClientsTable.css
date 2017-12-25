@@ -1,0 +1,12 @@
+.clients__table {
+  color: #737373
+}
+
+.clients__table tr {
+  background-color: white;
+  border: 0;
+}
+
+.clients__table th {
+  border: 0;
+}

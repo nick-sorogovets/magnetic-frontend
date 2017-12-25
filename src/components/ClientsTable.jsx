@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import ClientAPI from '../api/ClientsAPI';
 
 import ClientRow from './ClientRow';
+import '../styles/ClientsTable.css';
 
 class ClientsTable extends Component {
   state = {
@@ -47,12 +48,13 @@ class ClientsTable extends Component {
       );
     }
     return (
-      <Table striped hover responsive>
+      <Table hover responsive className="clients__table">
         <thead>
           <tr>
             {renderTh('name','Name')}
             {renderTh('phone','Phone Number')}
             {renderTh('birthday','Birthday')}
+            <th></th>
           </tr>
         </thead>
         <tbody>
